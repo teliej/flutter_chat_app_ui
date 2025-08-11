@@ -1,0 +1,186 @@
+{
+  "chats": [
+    {
+      "chatId": "user123@wa",
+      "isGroup": false,
+      "displayName": "John Doe",
+      "profileImage": "https://example.com/profiles/john.jpg",
+      "lastMessage": {
+        "messageId": "msg001",
+        "senderId": "user123@wa",
+        "content": "Hey, what's up?",
+        "type": "text",
+        "timestamp": 1725403488,
+        "status": "read"
+      },
+      "unreadCount": 1,
+      "isPinned": false,
+      "archived": false,
+      "isMuted": false
+    },
+    {
+      "chatId": "group456@wa",
+      "isGroup": true,
+      "displayName": "Study Group",
+      "profileImage": "https://example.com/profiles/group.jpg",
+      "lastMessage": {
+        "messageId": "msg002",
+        "senderId": "user789@wa",
+        "content": "Assignment is due tomorrow!",
+        "type": "text",
+        "timestamp": 1725404000,
+        "status": "delivered"
+      },
+      "unreadCount": 99,
+      "isPinned": true,
+      "archived": false,
+      "isMuted": true
+    }
+  ],
+  "messages": {
+    "user123@wa": [ 
+      {
+        "messageId": "msg001",
+        "senderId": "user123@wa",
+        "content": "Hey, what's up?",
+        "type": "text",
+        "timestamp": 1725403488,
+        "status": "read"
+      },
+      {
+        "messageId": "msg002",
+        "senderId": "me",
+        "content": "All good. You?",
+        "type": "text",
+        "timestamp": 1725403500,
+        "status": "sent"
+      },
+      {
+        "messageId": "msg001",
+        "senderId": "user123@wa",
+        "content": "I actually want to ask something",
+        "type": "text",
+        "timestamp": 1725403488,
+        "status": "read"
+      },
+      {
+        "messageId": "msg002",
+        "senderId": "me",
+        "content": "shoot",
+        "type": "text",
+        "timestamp": 1725403500,
+        "status": "sent"
+      },
+      {
+        "messageId": "msg002",
+        "senderId": "user123@wa",
+        "content": "ok",
+        "type": "text",
+        "timestamp": 1725403500,
+        "status": "sent"
+      }
+    ],
+    "group456@wa": [
+      {
+        "messageId": "msg001",
+        "senderId": "user123@wa",
+        "content": "Who dey here?",
+        "type": "text",
+        "timestamp": 1725403488,
+        "status": "read"
+      },
+      {
+        "messageId": "msg002",
+        "senderId": "me@wa",
+        "content": "See this egbon",
+        "type": "text",
+        "timestamp": 1725403500,
+        "status": "sent"
+      },
+      {
+        "messageId": "msg002",
+        "senderId": "me",
+        "content": "calm guys, let wait for the admin",
+        "type": "text",
+        "timestamp": 1725403500,
+        "status": "sent"
+      }
+    ]
+  },
+
+  "statuses": [
+    {
+      "userId": "friend@wa",
+      "displayName": "Friend",
+      "profileImage": "https://example.com/profiles/friend.jpg",
+      "statusUpdates": [
+        {
+          "statusId": "status001",
+          "mediaType": "image",
+          "contentUrl": "https://example.com/statuses/photo1.jpg",
+          "caption": "Chilling 😎",
+          "timestamp": 1725400000,
+          "viewed": true
+        },
+        {
+          "statusId": "status002",
+          "mediaType": "video",
+          "contentUrl": "https://example.com/statuses/video1.mp4",
+          "caption": "Party vibes",
+          "timestamp": 1725400100,
+          "viewed": false
+        }
+      ]
+    }
+  ],
+
+  "communities": [
+    {
+      "communityId": "school@wa",
+      "name": "High School Network",
+      "description": "Stay connected with old classmates",
+      "announcementGroupId": "school-announce@wa",
+      "subGroups": [
+        {
+          "groupId": "sports@wa",
+          "name": "Sports Team",
+          "membersCount": 20
+        },
+        {
+          "groupId": "science@wa",
+          "name": "Science Club",
+          "membersCount": 15
+        }
+      ],
+      "members": ["me@wa", "user123@wa", "user456@wa"]
+    }
+  ],
+  
+  "calls": [
+    {
+      "callId": "call001",
+      "callerId": "user999@wa",
+      "receiverId": "me@wa",
+      "isGroupCall": false,
+      "callType": "voice",
+      "timestamp": 1725390000,
+      "duration": 180,
+      "direction": "incoming",
+      "status": "missed",
+      "participants": null
+    },
+    {
+      "callId": "call002",
+      "callerId": "me@wa",
+      "receiverId": "group456@wa",
+      "isGroupCall": true,
+      "callType": "video",
+      "timestamp": 1725380000,
+      "duration": 600,
+      "direction": "outgoing",
+      "status": "answered",
+      "participants": ["user123@wa", "user234@wa", "user345@wa"]
+    }
+  ]
+}
+
