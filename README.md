@@ -1,16 +1,24 @@
-# flutter_basics
+# WhatsApp Inspired Messaging UI (Flutter)
 
-A new Flutter project.
+This project is a **WhatsApp inspired chat** interface built using Flutter.
+it demonstrates my ability to **design and implement real world mobile app UIs** with clean layouts, reusable components and responsive design
 
-## Getting Started
+## Features
 
+* **Responsive Layouts**: responsive design ensuring seamless adaptability across varying screen dimensions.
+  
+* **Conversation Bubbles**: engineered with a persistent timestamp architecture, ensuring temporal markers remain consistently anchored at the bottom-right for enhanced readability and interface precision.
+  
+* **Dark Mode Support**: comprehensive dark mode integration, delivering an adaptive interface that optimizes visual comfort, preserves aesthetic consistency and enhances readability across diverse lighting environment.
+  
+* **Custom Reusable Widgets**: scalable and maintainable codebase.
+  
+* **Clean Project Structure**: easy to extend into a full app.
+
+## Tech Stack
+
+* **Flutter**(UI framework)
+* **Dart** (language)
+
+## Screenshots
 This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
