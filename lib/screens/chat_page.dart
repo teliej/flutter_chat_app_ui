@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_basics/services/mock_data_service.dart';
 import '../models/chat.dart';
 import '../custom_classes/message_bubble.dart';
+import '../custom_colors.dart';
+
+
 
 class ChatPage extends StatefulWidget {
   final String displayName;
@@ -85,50 +88,71 @@ class _ChatPageState extends State<ChatPage> {
 
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>()!;
+    final theme = Theme.of(context);
+
     bool isTyping = _messageController.text.trim().isNotEmpty;
 
     return Scaffold(
+      backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
+        leadingWidth: 40,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back, color: theme.textTheme.bodyLarge?.color),
+          iconSize: 20,
+          padding: EdgeInsets.zero,
+          constraints: BoxConstraints(),
           onPressed: () => Navigator.of(context).pop(),
         ),
         titleSpacing: 0,
-        title: Padding(
-          padding: EdgeInsets.all(0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              CircleAvatar(
-                radius: 24,
-                backgroundColor: Colors.teal,
-                child: Icon(Icons.person, color: Colors.white,)
-              ),
-              SizedBox(width: 12),
-              Text(widget.displayName),
-              
-            ],
-          )
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            CircleAvatar(
+              radius: 18,
+              backgroundColor: theme.textTheme.bodyMedium?.color,
+              child: Icon(Icons.person, color: theme.scaffoldBackgroundColor,)
+            ),
+            SizedBox(width: 8),
+            Text(widget.displayName, style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400,color: theme.textTheme.bodyLarge?.color)),
+          ],
         ),
         elevation: 0,
         actions: [
           IconButton(
-            icon: const Icon(Icons.videocam_outlined),
+            icon: Icon(Icons.videocam_outlined, color: theme.textTheme.bodyLarge?.color),
             onPressed: () {},
           ),
           IconButton(
-            icon: const Icon(Icons.call_outlined),
+            icon: Icon(Icons.call_outlined, color: theme.textTheme.bodyLarge?.color),
             onPressed: () {},
           ),
           PopupMenuButton<String>(
-            
+            color: theme.scaffoldBackgroundColor,
+            elevation: 8,
+            constraints: BoxConstraints(
+              minWidth: 100, // set min width
+              maxWidth: 180, // optional max width
+              minHeight: 0,  // not really needed, but you can control height too
+              maxHeight: 400, // useful if many items
+            ),
+            shape: RoundedRectangleBorder( // rounded corners
+              borderRadius: BorderRadius.circular(12),
+            ),
             onSelected: (value) {
               if (value == 'Toggle Theme') {
                 // Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
               }
             },
             itemBuilder: (BuildContext context) {
-              return ['View contact','Search','New Group','Media, links and docs','Mute notification','Disappearing messages', 'Chat theme', 'More'].map((String choice) {
+              return ['View contact',
+                      'Search',
+                      'New Group',
+                      'Media, links and docs',
+                      'Mute notification',
+                      'Disappearing messages', 
+                      'Chat theme', 
+                      'More'].map((String choice) {
                 return PopupMenuItem<String>(
                   value: choice,
                   child: Text(choice),
@@ -155,33 +179,6 @@ class _ChatPageState extends State<ChatPage> {
                   timestamp: _formatTimestamp(message.timestamp),
                   isMe: isMe
                 );
-                // return Align(
-
-                //   alignment: isMe ? Alignment.centerRight : Alignment.centerLeft,
-                //   child: Container(
-                //     margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-                //     padding: const EdgeInsets.all(12),
-                //     decoration: BoxDecoration(
-                //       color: isMe ? Colors.teal[200] : Colors.grey[300],
-                //       borderRadius: BorderRadius.circular(12),
-                //     ),
-                //     child: Column(
-                //       crossAxisAlignment:
-                //           isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
-                //       children: [
-                //         Text(
-                //           message.content,
-                //           style: const TextStyle(fontSize: 15, color: Colors.black87),
-                //         ),
-                //         const SizedBox(height: 4),
-                //         Text(
-                //           _formatTimestamp(message.timestamp),
-                //           style: TextStyle(fontSize: 10, color: Colors.black54),
-                //         ),
-                //       ],
-                //     ),
-                //   ),
-                // );
               },
             ),
           ),
@@ -217,7 +214,7 @@ class _ChatPageState extends State<ChatPage> {
                 GestureDetector(
                   onTap: isTyping ? _sendMessage : null,
                   child: CircleAvatar(
-                    backgroundColor: Colors.teal,
+                    backgroundColor: theme.colorScheme.primary,
                     child: Icon(
                       isTyping ? Icons.send : Icons.mic,
                       color: Colors.white,
@@ -271,17 +268,19 @@ class CustomTextInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return TextFormField(
       obscureText: obscureText,
       controller: controller,
       onChanged: onChanged,
 
-      style: const TextStyle(
-        color: Colors.white,       // 🔤 Text color
+      style: TextStyle(
+        color: theme.textTheme.bodyLarge?.color,
         fontSize: 16,
       ),
       decoration: InputDecoration(
-        prefixIcon: Icon(icon, color: Colors.white),
+        prefixIcon: Icon(icon, color: theme.textTheme.bodyLarge?.color),
         suffixIcon: rightIcons.isNotEmpty
             ? Row(
                 mainAxisSize: MainAxisSize.min,
@@ -290,16 +289,17 @@ class CustomTextInput extends StatelessWidget {
               )
             : null,
         hintText: hintText,
+        hintStyle: TextStyle(color: theme.hintColor),
         filled: true,
-        fillColor: const Color.fromARGB(255, 24, 23, 23),
+        fillColor: theme.inputDecorationTheme.fillColor,
         contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25),
-          // borderSide: const BorderSide(color: Colors.deepPurple),
+          borderSide: const BorderSide(color: Colors.transparent),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25),
-          // borderSide: const BorderSide(color: Colors.purple, width: 2),
+          borderSide: const BorderSide(color: Colors.transparent),
         ),
       ),
     );

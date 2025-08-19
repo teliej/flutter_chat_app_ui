@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../app_color.dart';
 
 
 class CallsTab extends StatelessWidget{
@@ -8,6 +8,7 @@ class CallsTab extends StatelessWidget{
 
   @override
   Widget build(BuildContext context){
+    final theme = Theme.of(context);
 
     final List<Map<String, dynamic>> chatList = [
       {"name": "Olivia Parker", "time": "2 August 8:03PM", "red": true, "outgoing": false},
@@ -28,31 +29,31 @@ class CallsTab extends StatelessWidget{
 
 
     return Padding(
-      padding: EdgeInsets.all(5),
+      padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
             height: 40,
-            child: Text("Favourites", style: TextStyle(fontSize: 20)),
+            child: Text("Favourites", style: TextStyle(color: theme.textTheme.bodyLarge?.color, fontWeight: FontWeight.w500,fontSize: 20)),
             ),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               CircleAvatar(
                     radius: 20,
-                    backgroundColor: Color.fromARGB(255, 26, 131, 29),
-                    child: Icon(Icons.heart_broken, color: Colors.black, size: 25,)
+                    backgroundColor: theme.colorScheme.primary,
+                    child: Icon(Icons.heart_broken, color: theme.scaffoldBackgroundColor, size: 25,)
                     ),
               SizedBox(width: 12,),
-              Text("Add favourite")
+              Text("Add favourite", style: TextStyle(color: theme.textTheme.bodyLarge?.color, fontWeight: FontWeight.w500, fontSize: 15),)
             ],
           ),
 
           // const Divider(),
           
-          SizedBox(height: 12),
-          Text("Recent", style: TextStyle(fontSize: 20)),
+          SizedBox(height: 15),
+          Text("Recent", style: TextStyle(color: theme.textTheme.bodyLarge?.color,fontSize: 18, fontWeight: FontWeight.w500),),
 
           Expanded(
             child: ListView.builder(
@@ -61,23 +62,23 @@ class CallsTab extends StatelessWidget{
                 return ListTile(
                   onTap: (){},
                   contentPadding: EdgeInsets.symmetric(horizontal: 0),
-                  leading: const CircleAvatar(
+                  leading: CircleAvatar(
                     radius: 18,
-                    backgroundColor: Color.fromARGB(255, 113, 112, 112),
-                    child: Icon(Icons.person),
+                    backgroundColor: theme.textTheme.bodyMedium?.color,
+                    child: Icon(Icons.person, color: theme.scaffoldBackgroundColor,),
                   ),
                   title: Text(
                     chatList[index]['name'],
-                    style: TextStyle(color: chatList[index]['red'] == true ? Colors.red : Colors.white),),
+                    style: TextStyle(color: chatList[index]['red'] == true ? Colors.red : theme.textTheme.bodyLarge?.color),),
                   subtitle: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      chatList[index]['outgoing'] == true ? Icon(Icons.call_made, color: const Color.fromARGB(255, 21, 134, 24), size: 18,) : Icon(Icons.call_received, color: chatList[index]['red'] == true ? Colors.red : const Color.fromARGB(255, 21, 134, 24), size: 18,),
+                      chatList[index]['outgoing'] == true ? Icon(Icons.call_made, color: theme.colorScheme.primary, size: 18,) : Icon(Icons.call_received, color: chatList[index]['red'] == true ? Colors.red : theme.colorScheme.primary, size: 18,),
                       SizedBox(width: 5,),
-                      Text(chatList[index]['time'], style: TextStyle(color: const Color.fromARGB(255, 99, 99, 99)),),
+                      Text(chatList[index]['time'], style: TextStyle(color: theme.textTheme.bodyMedium?.color),),
                     ],
                   ),
-                  trailing: Icon(Icons.call),
+                  trailing: Icon(Icons.call_outlined, color: theme.textTheme.bodyLarge?.color,),
                 );
               }
             )

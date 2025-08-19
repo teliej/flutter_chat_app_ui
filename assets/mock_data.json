@@ -26,7 +26,7 @@
       "lastMessage": {
         "messageId": "msg002",
         "senderId": "user789@wa",
-        "content": "Assignment is due tomorrow!",
+        "content": "~ Assignment is due tomo...",
         "type": "text",
         "timestamp": 1725404000,
         "status": "delivered"

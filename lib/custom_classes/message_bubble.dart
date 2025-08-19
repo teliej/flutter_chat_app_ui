@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'bubble_clippers.dart';
+import '../custom_colors.dart';
+
 
 class MessageBubble extends StatelessWidget {
   final String message;
@@ -21,12 +22,14 @@ class MessageBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bubbleColor = isMe ? Colors.teal[200] : Colors.grey[300];
-    final textColor = Colors.black;
-    final tailClipper = isMe ? SendBubbleClipper() : ReceiveBubbleClipper();
+    final customColors = Theme.of(context).extension<CustomColors>()!;
+    final theme = Theme.of(context);
+
+    final bubbleColor = isMe ? customColors.bubbleOutgoing : customColors.bubbleIncoming;
+    final textColor = theme.textTheme.bodyLarge?.color;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,
         mainAxisAlignment:
@@ -40,51 +43,65 @@ class MessageBubble extends StatelessWidget {
                 backgroundImage: NetworkImage(avatarUrl!),
               ),
             ),
-          Flexible(
-            child: ClipPath(
-              clipper: tailClipper,
-              child: Container(
-                padding: const EdgeInsets.only(left: 12, right: 12, top: 8, bottom: 4),
-                constraints: const BoxConstraints(maxWidth: 280),
-                color: bubbleColor,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 15),
-                      child: Text(
-                        message,
-                        style: TextStyle(color: textColor, fontSize: 16),
-                        textAlign: TextAlign.left,
-                      ),
-                    ),
-                    const SizedBox(height: 6),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          timestamp,
-                          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 11, color: Color.fromARGB(255, 82, 81, 81)),
-                        ),
-                        if (isMe) const SizedBox(width: 4),
-                        if (isMe)
-                          Icon(
-                            isSeen
-                                ? Icons.done_all
-                                : isDelivered
-                                    ? Icons.done_all
-                                    : Icons.check,
-                            size: 16,
-                            color: isSeen ? Colors.blue : const Color.fromARGB(255, 114, 113, 113),
-                          ),
-                      ],
-                    ),
-                  ],
+          Column(
+            crossAxisAlignment:
+                isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+            children: [
+              // Bubble
+              Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                constraints: BoxConstraints(
+                  maxWidth: MediaQuery.of(context).size.width * 0.7, // ✅ limit bubble width
+                ),
+                decoration: BoxDecoration(
+                  color: bubbleColor,
+                  borderRadius: BorderRadius.only(
+                    topLeft: const Radius.circular(16),
+                    topRight: const Radius.circular(16),
+                    bottomLeft: isMe
+                        ? const Radius.circular(16)
+                        : const Radius.circular(0),
+                    bottomRight: isMe
+                        ? const Radius.circular(0)
+                        : const Radius.circular(16),
+                  ),
+                ),
+                child: Text(
+                  message,
+                  style: TextStyle(color: textColor, fontSize: 16),
+                  softWrap: true, // ✅ wrap text when long
                 ),
               ),
-            ),
+              const SizedBox(height: 2),
+              // Timestamp + ticks outside
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    timestamp,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 11,
+                      color: isMe ? customColors.outgoingTimeStamp : customColors.incomingTimeStamp,
+                    ),
+                  ),
+                  if (isMe) const SizedBox(width: 4),
+                  if (isMe)
+                    Icon(
+                      isSeen
+                          ? Icons.done_all
+                          : isDelivered
+                              ? Icons.done_all
+                              : Icons.check,
+                      size: 16,
+                      color: isSeen
+                          ? theme.colorScheme.secondary
+                          : theme.textTheme.bodyMedium?.color,
+                    ),
+                ],
+              ),
+            ],
           ),
         ],
       ),
