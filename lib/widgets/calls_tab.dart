@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../app_color.dart';
 
 
 class CallsTab extends StatelessWidget{
@@ -10,21 +9,22 @@ class CallsTab extends StatelessWidget{
   Widget build(BuildContext context){
     final theme = Theme.of(context);
 
+    // just a placeholder for the call list
     final List<Map<String, dynamic>> chatList = [
-      {"name": "Olivia Parker", "time": "2 August 8:03PM", "red": true, "outgoing": false},
-      {"name": "James Holden", "time": "2 August 6:18AM", "red": false, "outgoing": true},
-      {"name": "Sophia Bennett", "time": "1 August 10:42AM", "red": true, "outgoing": false},
-      {"name": "Ethan Walker", "time": "1 August 4:29PM", "red": false, "outgoing": false},
-      {"name": "Isabella Reed", "time": "31 July 7:55PM", "red": true, "outgoing": false},
-      {"name": "Liam Carter", "time": "30 July 11:36AM", "red": true, "outgoing": false},
-      {"name": "Charlotte Myers", "time": "30 July 2:17PM", "red": false, "outgoing": true},
-      {"name": "Noah Hughes", "time": "29 July 9:03AM", "red": true, "outgoing": false},
-      {"name": "Amelia Fisher", "time": "29 July 5:45PM", "red": true, "outgoing": false},
-      {"name": "Logan Hayes", "time": "28 July 8:14AM", "red": false, "outgoing": true},
-      {"name": "Emma Daniels", "time": "27 July 6:21PM", "red": false, "outgoing": false},
-      {"name": "Henry Coleman", "time": "27 July 1:00PM", "red": true, "outgoing": false},
-      {"name": "Ava Mitchell", "time": "26 July 3:37PM", "red": false, "outgoing": true},
-      {"name": "Mason Brooks", "time": "25 July 10:18AM", "red": false, "outgoing": true},
+      {"name": "Olivia Parker", "time": "2 August 8:03PM", "red": true, "audio": true, "outgoing": false},
+      {"name": "James Holden", "time": "2 August 6:18AM", "red": false, "audio": false, "outgoing": true},
+      {"name": "Sophia Bennett", "time": "1 August 10:42AM", "red": true, "audio": true, "outgoing": false},
+      {"name": "Ethan Walker", "time": "1 August 4:29PM", "red": false, "audio": true, "outgoing": false},
+      {"name": "Isabella Reed", "time": "31 July 7:55PM", "red": true, "audio": true, "outgoing": false},
+      {"name": "Liam Carter", "time": "30 July 11:36AM", "red": true, "audio": true, "outgoing": false},
+      {"name": "Charlotte Myers", "time": "30 July 2:17PM", "red": false, "audio": false, "outgoing": true},
+      {"name": "Noah Hughes", "time": "29 July 9:03AM", "red": true, "audio": true, "outgoing": false},
+      {"name": "Amelia Fisher", "time": "29 July 5:45PM", "red": true, "audio": true, "outgoing": false},
+      {"name": "Logan Hayes", "time": "28 July 8:14AM", "red": false, "audio": true, "outgoing": true},
+      {"name": "Emma Daniels", "time": "27 July 6:21PM", "red": false, "audio": false, "outgoing": false},
+      {"name": "Henry Coleman", "time": "27 July 1:00PM", "red": true, "audio": true, "outgoing": false},
+      {"name": "Ava Mitchell", "time": "26 July 3:37PM", "red": false, "audio": false, "outgoing": true},
+      {"name": "Mason Brooks", "time": "25 July 10:18AM", "red": false, "audio": false, "outgoing": true},
     ];
 
 
@@ -35,7 +35,9 @@ class CallsTab extends StatelessWidget{
         children: [
           SizedBox(
             height: 40,
-            child: Text("Favourites", style: TextStyle(color: theme.textTheme.bodyLarge?.color, fontWeight: FontWeight.w500,fontSize: 20)),
+            child: Text("Favourites", 
+                        style: theme.textTheme.bodyLarge?.copyWith(
+                          fontSize: 20)),
             ),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -43,17 +45,18 @@ class CallsTab extends StatelessWidget{
               CircleAvatar(
                     radius: 20,
                     backgroundColor: theme.colorScheme.primary,
-                    child: Icon(Icons.heart_broken, color: theme.scaffoldBackgroundColor, size: 25,)
+                    child: Icon(Icons.favorite, color: theme.scaffoldBackgroundColor, size: 25,)
                     ),
               SizedBox(width: 12,),
-              Text("Add favourite", style: TextStyle(color: theme.textTheme.bodyLarge?.color, fontWeight: FontWeight.w500, fontSize: 15),)
+              Text("Add favourite", 
+                  style: theme.textTheme.bodyLarge)
             ],
           ),
 
           // const Divider(),
           
           SizedBox(height: 15),
-          Text("Recent", style: TextStyle(color: theme.textTheme.bodyLarge?.color,fontSize: 18, fontWeight: FontWeight.w500),),
+          Text("Recent", style: theme.textTheme.bodyLarge?.copyWith(fontSize: 18,),),
 
           Expanded(
             child: ListView.builder(
@@ -67,18 +70,25 @@ class CallsTab extends StatelessWidget{
                     backgroundColor: theme.textTheme.bodyMedium?.color,
                     child: Icon(Icons.person, color: theme.scaffoldBackgroundColor,),
                   ),
+
                   title: Text(
                     chatList[index]['name'],
-                    style: TextStyle(color: chatList[index]['red'] == true ? Colors.red : theme.textTheme.bodyLarge?.color),),
+                    style: theme.textTheme.bodyLarge?.copyWith(
+                      color: chatList[index]['red'] == true ? Colors.red : theme.textTheme.bodyLarge?.color,),
+                    maxLines: 1,),
+
                   subtitle: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       chatList[index]['outgoing'] == true ? Icon(Icons.call_made, color: theme.colorScheme.primary, size: 18,) : Icon(Icons.call_received, color: chatList[index]['red'] == true ? Colors.red : theme.colorScheme.primary, size: 18,),
                       SizedBox(width: 5,),
-                      Text(chatList[index]['time'], style: TextStyle(color: theme.textTheme.bodyMedium?.color),),
+                      Text(chatList[index]['time'], 
+                      style: theme.textTheme.bodyMedium,maxLines: 1,),
                     ],
                   ),
-                  trailing: Icon(Icons.call_outlined, color: theme.textTheme.bodyLarge?.color,),
+                  trailing: Icon(
+                    chatList[index]['audio'] ? Icons.call_outlined : Icons.videocam_outlined, 
+                    color: theme.textTheme.bodyLarge?.color,),
                 );
               }
             )

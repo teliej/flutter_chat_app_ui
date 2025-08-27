@@ -1,17 +1,35 @@
 {
   "chats": [
     {
-      "chatId": "user123@wa",
+      "chatId": "user111@wa",
       "isGroup": false,
-      "displayName": "John Doe",
-      "profileImage": "https://example.com/profiles/john.jpg",
+      "displayName": "Alice Johnson",
+      "profileImage": "https://example.com/profiles/alice.jpg",
       "lastMessage": {
-        "messageId": "msg001",
-        "senderId": "user123@wa",
-        "content": "Hey, what's up?",
+        "messageId": "msg101",
+        "senderId": "user111@wa",
+        "content": "Are you joining tonight?",
         "type": "text",
-        "timestamp": 1725403488,
+        "timestamp": 1725500000,
         "status": "read"
+      },
+      "unreadCount": 0,
+      "isPinned": false,
+      "archived": false,
+      "isMuted": false
+    },
+    {
+      "chatId": "user222@wa",
+      "isGroup": false,
+      "displayName": "Marcus",
+      "profileImage": "https://example.com/profiles/marcus.jpg",
+      "lastMessage": {
+        "messageId": "msg102",
+        "senderId": "me",
+        "content": "Let's meet at 5.",
+        "type": "text",
+        "timestamp": 1725500500,
+        "status": "sent"
       },
       "unreadCount": 1,
       "isPinned": false,
@@ -19,90 +37,221 @@
       "isMuted": false
     },
     {
-      "chatId": "group456@wa",
+      "chatId": "devgroup@wa",
       "isGroup": true,
-      "displayName": "Study Group",
-      "profileImage": "https://example.com/profiles/group.jpg",
+      "displayName": "Dev Team 🚀",
+      "profileImage": "https://example.com/profiles/devteam.jpg",
       "lastMessage": {
-        "messageId": "msg002",
-        "senderId": "user789@wa",
-        "content": "~ Assignment is due tomo...",
+        "messageId": "msg103",
+        "senderId": "user333@wa",
+        "content": "New API deployed 🔥",
         "type": "text",
-        "timestamp": 1725404000,
+        "timestamp": 1725501000,
         "status": "delivered"
       },
-      "unreadCount": 99,
+      "unreadCount": 8,
+      "isPinned": true,
+      "archived": false,
+      "isMuted": true
+    },
+    {
+      "chatId": "user333@wa",
+      "isGroup": false,
+      "displayName": "Sophia Martinez",
+      "profileImage": "https://example.com/profiles/sophia.jpg",
+      "lastMessage": {
+        "messageId": "msg104",
+        "senderId": "me",
+        "content": "Got it, thanks!",
+        "type": "text",
+        "timestamp": 1725502000,
+        "status": "sent"
+      },
+      "unreadCount": 0,
+      "isPinned": false,
+      "archived": false,
+      "isMuted": false
+    },
+    {
+      "chatId": "user444@wa",
+      "isGroup": false,
+      "displayName": "Lara ✈️",
+      "profileImage": "https://example.com/profiles/lara.jpg",
+      "lastMessage": {
+        "messageId": "msg105",
+        "senderId": "user444@wa",
+        "content": "Safe flight!",
+        "type": "text",
+        "timestamp": 1725502100,
+        "status": "read"
+      },
+      "unreadCount": 0,
+      "isPinned": false,
+      "archived": false,
+      "isMuted": false
+    },
+    {
+      "chatId": "user555@wa",
+      "isGroup": false,
+      "displayName": "Daniel Lee",
+      "profileImage": "https://example.com/profiles/daniel.jpg",
+      "lastMessage": {
+        "messageId": "msg106",
+        "senderId": "me",
+        "content": "See you at the gym.",
+        "type": "text",
+        "timestamp": 1725502500,
+        "status": "sent"
+      },
+      "unreadCount": 1,
+      "isPinned": false,
+      "archived": false,
+      "isMuted": true
+    },
+    {
+      "chatId": "user666@wa",
+      "isGroup": false,
+      "displayName": "Emily Clark",
+      "profileImage": "https://example.com/profiles/emily.jpg",
+      "lastMessage": {
+        "messageId": "msg107",
+        "senderId": "user666@wa",
+        "content": "Lunch plans?",
+        "type": "text",
+        "timestamp": 1725503000,
+        "status": "delivered"
+      },
+      "unreadCount": 3,
+      "isPinned": true,
+      "archived": false,
+      "isMuted": false
+    },
+    {
+      "chatId": "user777@wa",
+      "isGroup": false,
+      "displayName": "Oliver Stone",
+      "profileImage": "https://example.com/profiles/oliver.jpg",
+      "lastMessage": {
+        "messageId": "msg108",
+        "senderId": "me",
+        "content": "Thanks for the update!",
+        "type": "text",
+        "timestamp": 1725503500,
+        "status": "sent"
+      },
+      "unreadCount": 0,
+      "isPinned": false,
+      "archived": false,
+      "isMuted": false
+    },
+    {
+      "chatId": "user888@wa",
+      "isGroup": false,
+      "displayName": "Rachel Green",
+      "profileImage": "https://example.com/profiles/rachel.jpg",
+      "lastMessage": {
+        "messageId": "msg109",
+        "senderId": "user888@wa",
+        "content": "See you soon!",
+        "type": "text",
+        "timestamp": 1725504000,
+        "status": "read"
+      },
+      "unreadCount": 0,
+      "isPinned": false,
+      "archived": false,
+      "isMuted": false
+    },
+    {
+      "chatId": "user999@wa",
+      "isGroup": false,
+      "displayName": "Chris Evans",
+      "profileImage": "https://example.com/profiles/chris.jpg",
+      "lastMessage": {
+        "messageId": "msg110",
+        "senderId": "me",
+        "content": "All set for tomorrow!",
+        "type": "text",
+        "timestamp": 1725504500,
+        "status": "sent"
+      },
+      "unreadCount": 2,
+      "isPinned": false,
+      "archived": false,
+      "isMuted": false
+    },
+    {
+      "chatId": "friendsgroup@wa",
+      "isGroup": true,
+      "displayName": "Friends Hangout 🍕",
+      "profileImage": "https://example.com/profiles/friends.jpg",
+      "lastMessage": {
+        "messageId": "msg111",
+        "senderId": "user555@wa",
+        "content": "Game night at my place!",
+        "type": "text",
+        "timestamp": 1725505000,
+        "status": "delivered"
+      },
+      "unreadCount": 10,
+      "isPinned": true,
+      "archived": false,
+      "isMuted": false
+    },
+    {
+      "chatId": "projectgroup@wa",
+      "isGroup": true,
+      "displayName": "Project Alpha",
+      "profileImage": "https://example.com/profiles/project.jpg",
+      "lastMessage": {
+        "messageId": "msg112",
+        "senderId": "me",
+        "content": "Deadline moved to next Friday.",
+        "type": "text",
+        "timestamp": 1725505500,
+        "status": "sent"
+      },
+      "unreadCount": 5,
       "isPinned": true,
       "archived": false,
       "isMuted": true
     }
   ],
+
   "messages": {
-    "user123@wa": [ 
+    "user111@wa": [
       {
-        "messageId": "msg001",
-        "senderId": "user123@wa",
-        "content": "Hey, what's up?",
+        "messageId": "msg101",
+        "senderId": "user111@wa",
+        "content": "Are you joining tonight?",
         "type": "text",
-        "timestamp": 1725403488,
+        "timestamp": 1725500000,
         "status": "read"
       },
       {
-        "messageId": "msg002",
+        "messageId": "msg104",
         "senderId": "me",
-        "content": "All good. You?",
+        "content": "Yes, I’ll be there!",
         "type": "text",
-        "timestamp": 1725403500,
-        "status": "sent"
-      },
-      {
-        "messageId": "msg001",
-        "senderId": "user123@wa",
-        "content": "I actually want to ask something",
-        "type": "text",
-        "timestamp": 1725403488,
-        "status": "read"
-      },
-      {
-        "messageId": "msg002",
-        "senderId": "me",
-        "content": "shoot",
-        "type": "text",
-        "timestamp": 1725403500,
-        "status": "sent"
-      },
-      {
-        "messageId": "msg002",
-        "senderId": "user123@wa",
-        "content": "ok",
-        "type": "text",
-        "timestamp": 1725403500,
+        "timestamp": 1725500100,
         "status": "sent"
       }
     ],
-    "group456@wa": [
+    "devgroup@wa": [
       {
-        "messageId": "msg001",
-        "senderId": "user123@wa",
-        "content": "Who dey here?",
+        "messageId": "msg103",
+        "senderId": "user333@wa",
+        "content": "New API deployed 🔥",
         "type": "text",
-        "timestamp": 1725403488,
-        "status": "read"
+        "timestamp": 1725501000,
+        "status": "delivered"
       },
       {
-        "messageId": "msg002",
-        "senderId": "me@wa",
-        "content": "See this egbon",
-        "type": "text",
-        "timestamp": 1725403500,
-        "status": "sent"
-      },
-      {
-        "messageId": "msg002",
+        "messageId": "msg106",
         "senderId": "me",
-        "content": "calm guys, let wait for the admin",
+        "content": "Awesome work team 👏",
         "type": "text",
-        "timestamp": 1725403500,
+        "timestamp": 1725501200,
         "status": "sent"
       }
     ]
@@ -110,24 +259,31 @@
 
   "statuses": [
     {
-      "userId": "friend@wa",
-      "displayName": "Friend",
-      "profileImage": "https://example.com/profiles/friend.jpg",
+      "userId": "user444@wa",
+      "displayName": "Lara ✈️",
+      "profileImage": "https://example.com/profiles/lara.jpg",
       "statusUpdates": [
         {
-          "statusId": "status001",
+          "statusId": "status101",
           "mediaType": "image",
-          "contentUrl": "https://example.com/statuses/photo1.jpg",
-          "caption": "Chilling 😎",
-          "timestamp": 1725400000,
+          "contentUrl": "https://example.com/statuses/paris.jpg",
+          "caption": "Paris vibes 🗼",
+          "timestamp": 1725499000,
           "viewed": true
-        },
+        }
+      ]
+    },
+    {
+      "userId": "user555@wa",
+      "displayName": "Daniel Lee",
+      "profileImage": "https://example.com/profiles/daniel.jpg",
+      "statusUpdates": [
         {
-          "statusId": "status002",
+          "statusId": "status102",
           "mediaType": "video",
-          "contentUrl": "https://example.com/statuses/video1.mp4",
-          "caption": "Party vibes",
-          "timestamp": 1725400100,
+          "contentUrl": "https://example.com/statuses/workout.mp4",
+          "caption": "Leg day 💪",
+          "timestamp": 1725499600,
           "viewed": false
         }
       ]
@@ -136,51 +292,50 @@
 
   "communities": [
     {
-      "communityId": "school@wa",
-      "name": "High School Network",
-      "description": "Stay connected with old classmates",
-      "announcementGroupId": "school-announce@wa",
+      "communityId": "work@wa",
+      "name": "Workplace Network",
+      "description": "Stay in the loop with all work updates",
+      "announcementGroupId": "work-announce@wa",
       "subGroups": [
         {
-          "groupId": "sports@wa",
-          "name": "Sports Team",
-          "membersCount": 20
+          "groupId": "frontend@wa",
+          "name": "Frontend Devs",
+          "membersCount": 12
         },
         {
-          "groupId": "science@wa",
-          "name": "Science Club",
+          "groupId": "backend@wa",
+          "name": "Backend Devs",
           "membersCount": 15
         }
       ],
-      "members": ["me@wa", "user123@wa", "user456@wa"]
+      "members": ["me@wa", "user333@wa", "user555@wa"]
     }
   ],
-  
+
   "calls": [
     {
-      "callId": "call001",
-      "callerId": "user999@wa",
+      "callId": "call101",
+      "callerId": "user111@wa",
       "receiverId": "me@wa",
       "isGroupCall": false,
       "callType": "voice",
-      "timestamp": 1725390000,
-      "duration": 180,
+      "timestamp": 1725490000,
+      "duration": 120,
       "direction": "incoming",
-      "status": "missed",
+      "status": "answered",
       "participants": null
     },
     {
-      "callId": "call002",
+      "callId": "call102",
       "callerId": "me@wa",
-      "receiverId": "group456@wa",
+      "receiverId": "devgroup@wa",
       "isGroupCall": true,
       "callType": "video",
-      "timestamp": 1725380000,
-      "duration": 600,
+      "timestamp": 1725485000,
+      "duration": 300,
       "direction": "outgoing",
       "status": "answered",
-      "participants": ["user123@wa", "user234@wa", "user345@wa"]
+      "participants": ["user333@wa", "user444@wa", "user555@wa"]
     }
   ]
 }
-

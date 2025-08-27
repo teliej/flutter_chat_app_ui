@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_basics/services/mock_data_service.dart';
 import '../models/chat.dart';
 import '../custom_classes/message_bubble.dart';
-import '../custom_colors.dart';
+// import '../custom_colors.dart';
 
 
 
@@ -88,7 +88,7 @@ class _ChatPageState extends State<ChatPage> {
 
   @override
   Widget build(BuildContext context) {
-    final customColors = Theme.of(context).extension<CustomColors>()!;
+    // final customColors = Theme.of(context).extension<CustomColors>()!;
     final theme = Theme.of(context);
 
     bool isTyping = _messageController.text.trim().isNotEmpty;
@@ -114,7 +114,11 @@ class _ChatPageState extends State<ChatPage> {
               child: Icon(Icons.person, color: theme.scaffoldBackgroundColor,)
             ),
             SizedBox(width: 8),
-            Text(widget.displayName, style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400,color: theme.textTheme.bodyLarge?.color)),
+            Text(
+              widget.displayName, 
+              style: theme.textTheme.bodyLarge?.copyWith(
+                fontSize: 18, 
+                fontWeight: FontWeight.w400,)),
           ],
         ),
         elevation: 0,
@@ -132,7 +136,7 @@ class _ChatPageState extends State<ChatPage> {
             elevation: 8,
             constraints: BoxConstraints(
               minWidth: 100, // set min width
-              maxWidth: 180, // optional max width
+              maxWidth: 200, // optional max width
               minHeight: 0,  // not really needed, but you can control height too
               maxHeight: 400, // useful if many items
             ),
@@ -155,7 +159,12 @@ class _ChatPageState extends State<ChatPage> {
                       'More'].map((String choice) {
                 return PopupMenuItem<String>(
                   value: choice,
-                  child: Text(choice),
+                  child: Text(
+                    choice,
+                    style: theme.textTheme.bodyLarge?.copyWith(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                    ),),
                 );
               }).toList();
             },

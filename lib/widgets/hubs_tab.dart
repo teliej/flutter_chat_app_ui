@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CommunitiesTab extends StatelessWidget {
-  const CommunitiesTab({super.key});
+class HubsTab extends StatelessWidget {
+  const HubsTab({super.key});
 
   Widget _shadowDivider(BuildContext context) {
     return Container(
@@ -51,12 +51,8 @@ class CommunitiesTab extends StatelessWidget {
           ),
           const SizedBox(width: 12),
           Text(
-            "New community",
-            style: TextStyle(
-              color: theme.textTheme.bodyLarge?.color,
-              fontWeight: FontWeight.w500,
-              fontSize: 16,
-            ),
+            "New Hub",
+            style: theme.textTheme.bodyLarge,
           ),
         ],
       ),
@@ -85,8 +81,7 @@ class CommunitiesTab extends StatelessWidget {
               const SizedBox(width: 12),
               Text(
                 "TCS ${(index + 1) * 100} LVL",
-                style: TextStyle(
-                  color: theme.textTheme.bodyLarge?.color,
+                style: theme.textTheme.bodyLarge?.copyWith(
                   fontWeight: FontWeight.w400,
                   fontSize: 18,
                 ),
@@ -121,10 +116,9 @@ class CommunitiesTab extends StatelessWidget {
                   ),
                   title: Text("Announcements",
                       style:
-                          TextStyle(color: theme.textTheme.bodyLarge?.color)),
+                          theme.textTheme.bodyLarge),
                   subtitle: Text("TCS ${(index + 1) * 104} Assignment",
-                      style:
-                          TextStyle(color: theme.textTheme.bodyMedium?.color)),
+                      style: theme.textTheme.bodyMedium),
                   trailing: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -145,12 +139,10 @@ class CommunitiesTab extends StatelessWidget {
                     child: Icon(Icons.people,
                         color: Color.fromARGB(255, 119, 169, 121), size: 20),
                   ),
-                  title: Text("TELECOMMUNICATION...",
-                      style:
-                          TextStyle(color: theme.textTheme.bodyLarge?.color)),
-                  subtitle: Text("~ You: Bro!!! this is an op...",
-                      style:
-                          TextStyle(color: theme.textTheme.bodyMedium?.color)),
+                  title: Text("TELECOMMUNICATION SCIENCE",
+                      style: theme.textTheme.bodyLarge),
+                  subtitle: Text("~ You: Bro!!! this is an opportunity you can't miss",
+                      style: theme.textTheme.bodyMedium),
                   trailing: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -172,12 +164,10 @@ class CommunitiesTab extends StatelessWidget {
                     child: Icon(Icons.people,
                         color: Color.fromARGB(255, 119, 169, 121), size: 20),
                   ),
-                  title: Text("OFFICIAL ${(index + 1) * 100}, LVL",
-                      style:
-                          TextStyle(color: theme.textTheme.bodyLarge?.color)),
+                  title: Text("OFFICIAL ${(index + 1) * 100} LVL",
+                      style: theme.textTheme.bodyLarge),
                   subtitle: Text("Today, 10:00 AM",
-                      style:
-                          TextStyle(color: theme.textTheme.bodyMedium?.color)),
+                      style: theme.textTheme.bodyMedium),
                   trailing: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

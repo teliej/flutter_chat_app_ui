@@ -33,7 +33,7 @@ class UpdatesTab extends StatelessWidget {
             child: SizedBox(
               height: 40,
               child: Text(
-                "Status",
+                "Buzz",
                 style: TextStyle(
                   color: theme.textTheme.bodyLarge?.color,
                   fontWeight: FontWeight.w500,
@@ -86,9 +86,7 @@ class UpdatesTab extends StatelessWidget {
                           ),
                           Text(
                             "Add status",
-                            style: TextStyle(
-                              color: theme.textTheme.bodyLarge?.color,
-                              fontWeight: FontWeight.w500,
+                            style: theme.textTheme.bodyLarge?.copyWith(
                               fontSize: 12,
                             ),
                           )
@@ -111,9 +109,7 @@ class UpdatesTab extends StatelessWidget {
               children: [
                 Text(
                   "Channels",
-                  style: TextStyle(
-                    color: theme.textTheme.bodyLarge?.color,
-                    fontWeight: FontWeight.w500,
+                  style: theme.textTheme.bodyLarge?.copyWith(
                     fontSize: 18,
                   ),
                 ),
@@ -125,9 +121,7 @@ class UpdatesTab extends StatelessWidget {
                     side: BorderSide(color: theme.scaffoldBackgroundColor),
                     borderRadius: BorderRadius.circular(25),
                   ),
-                  labelStyle: TextStyle(
-                    color: theme.textTheme.bodyLarge?.color,
-                    fontWeight: FontWeight.w500,
+                  labelStyle: theme.textTheme.bodyLarge?.copyWith(
                     fontSize: 15,
                   ),
                 ),
@@ -150,11 +144,13 @@ class UpdatesTab extends StatelessWidget {
                 ),
                 title: Text(
                   mockChats[index]['name']!,
-                  style: TextStyle(color: theme.textTheme.bodyLarge?.color),
+                  style: theme.textTheme.bodyLarge,
+                  maxLines: 1,
                 ),
                 subtitle: Text(
                   mockChats[index]['content']!,
-                  style: TextStyle(color: theme.textTheme.bodySmall?.color),
+                  style: theme.textTheme.bodyMedium,
+                  maxLines: 1,
                 ),
                 trailing: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,

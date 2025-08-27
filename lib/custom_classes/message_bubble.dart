@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../custom_colors.dart';
+import '../app_theme/custom_colors.dart';
 
 
 class MessageBubble extends StatelessWidget {

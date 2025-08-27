@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'app_color.dart';
 
 @immutable
 class CustomColors extends ThemeExtension<CustomColors> {
