@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_basics/services/mock_data_service.dart';
 import '../models/chat.dart';
 import '../custom_classes/message_bubble.dart';
-// import '../custom_colors.dart';
 
 
 
@@ -88,10 +88,21 @@ class _ChatPageState extends State<ChatPage> {
 
   @override
   Widget build(BuildContext context) {
-    // final customColors = Theme.of(context).extension<CustomColors>()!;
     final theme = Theme.of(context);
-
     bool isTyping = _messageController.text.trim().isNotEmpty;
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarColor: Colors.transparent, // keep transparent, content goes behind
+          statusBarIconBrightness:
+              theme.brightness == Brightness.dark ? Brightness.light : Brightness.dark,
+          systemNavigationBarColor: theme.scaffoldBackgroundColor,
+          systemNavigationBarIconBrightness:
+              theme.brightness == Brightness.dark ? Brightness.light : Brightness.dark,
+        ),
+      );
+    });
 
     return Scaffold(
       backgroundColor: theme.scaffoldBackgroundColor,
