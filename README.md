@@ -32,4 +32,4 @@ it demonstrates my ability to **design and implement real world mobile app UIs**
 
 | Moments | Video Demo |
 |:-----------:|:-----------:|
-| <img src="https://github.com/teliej/flutter_chat_app_ui/blob/main/assets/Screenshots/light/moments.jpg" width="300"> | <img src="https://github.com/teliej/flutter_chat_app_ui/blob/main/assets/Screenshots/dark/hub.jpg" width="300"> |
+| <img src="https://github.com/teliej/flutter_chat_app_ui/blob/main/assets/Screenshots/light/moments.jpg" width="300"> | <img src="https://github.com/teliej/flutter_chat_app_ui/blob/main/assets/flutter_whats_ui.gif" width="300"> |
